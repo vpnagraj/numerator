@@ -41,8 +41,8 @@ def build_response(session_attributes, speechlet_response):
 def get_welcome_response():
     session_attributes = {}
     card_title = "Welcome to numerator"
-    speech_output = "<emphasis level = 'strong'>Hi!</emphasis> Numerator here! <break time='600ms'/>" \
-                    "<amazon:effect name = 'whispered'>Pick a number, any number.</amazon:effect>"
+    speech_output = "<speak><emphasis level = 'strong'>Hi!</emphasis> Numerator here! <break time='600ms'/>" \
+                    "<amazon:effect name = 'whispered'>Pick a number, any number.</amazon:effect></speak>"
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
     reprompt_text = "Hello?"
