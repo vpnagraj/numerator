@@ -1,0 +1,40 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "numerator",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "NumberFact",
+                    "slots": [
+                        {
+                            "name": "number",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "give me a fact about {number}",
+                        "Tell me about {number}",
+                        "{number}"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
