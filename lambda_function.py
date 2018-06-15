@@ -10,8 +10,8 @@ import urllib2
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
     return {
         'outputSpeech': {
-            'type': 'PlainText',
-            'text': output
+            'type': 'SSML',
+            'ssml': output
         },
         'card': {
             'type': 'Simple',
@@ -41,8 +41,8 @@ def build_response(session_attributes, speechlet_response):
 def get_welcome_response():
     session_attributes = {}
     card_title = "Welcome to numerator"
-    speech_output = "Hi, numerator here! <break time='300ms'/>" \
-                    "Pick a number, any number."
+    speech_output = "<emphasis level = 'strong'>Hi!</emphasis> Numerator here! <break time='600ms'/>" \
+                    "<amazon:effect name = 'whispered'>Pick a number, any number.</amazon:effect>"
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
     reprompt_text = "Hello?"
@@ -72,7 +72,7 @@ def num_fact(intent, session):
     req = urllib2.Request(url)
     resp = urllib2.urlopen(req)
     data_json = json.loads(resp.read())
-    speech_output = data_json['text']
+    speech_output = "<speak>" + data_json['text'] + "</speak>"
     return build_response(session_attributes, build_speechlet_response(card_title, speech_output, None, should_end_session))
 # --------------- Events ------------------
 
